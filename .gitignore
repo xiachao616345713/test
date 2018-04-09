@@ -11,6 +11,7 @@ dependency.txt
 */dependency.txt
 catalina.home_IS_UNDEFINED
 .tempshell
+.mvn
 
 
 # eclipse ignore
@@ -43,4 +44,3 @@ logs/
 .DS_Store
 Thumbs.db
 pom.xml.versionsBackup
-cloudx-config-server/src/test/resources/config/application.yml

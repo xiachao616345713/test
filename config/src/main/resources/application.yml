@@ -1,0 +1,31 @@
+server:
+  port: 8888
+
+spring:
+  # spring.profiles.active = native will use cloud.config.server.native
+  # use git repo delete spring.profiles.active = native
+  profiles:
+    active: native
+  application:
+    name: config-server
+#    /{application.name}/{profile}[/{label}]
+#    /{application.name}-{profile}.yml
+#    /{label}/{application}-{profile}.yml
+#    /{application.name}-{profile}.properties
+#    /{label}/{application.name}-{profile}.properties
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: D:/project/code/services-repo/manager-config/
+        git:
+          uri: git@github.com:xiachao616345713/services-repo.git
+          search-paths: manager-config
+      label: master
+eureka:
+  instance:
+      preferIpAddress: true
+      instanceId: ${spring.application.name}:${server.port}
+  client:
+    service-url:
+        defaultZone: http://localhost:8761/eureka/

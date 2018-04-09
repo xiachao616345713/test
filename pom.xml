@@ -13,13 +13,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <spring.cloud.version>Camden.SR7</spring.cloud.version>
+        <spring.cloud.version>Edgware.SR3</spring.cloud.version>
     </properties>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.4.5.RELEASE</version>
+        <version>1.5.11.RELEASE</version>
     </parent>
     <dependencyManagement>
         <dependencies>
@@ -34,13 +34,11 @@
     </dependencyManagement>
     <dependencies>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
-        </dependency>
+
     </dependencies>
 
 </project>
