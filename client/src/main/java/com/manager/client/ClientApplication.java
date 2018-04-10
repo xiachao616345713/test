@@ -20,7 +20,7 @@ public class ClientApplication {
     private String info;
 
     @GetMapping("hello")
-    public String helloWorld(){
-        return "hello world  "+info;
+    public String helloWorld() {
+        return "hello world  " + info;
     }
 }

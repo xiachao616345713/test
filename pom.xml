@@ -7,6 +7,7 @@
     <groupId>manager</groupId>
     <artifactId>manager-parent</artifactId>
     <version>1.0.0</version>
+    <packaging>pom</packaging>
 
     <properties>
         <java.version>1.8</java.version>
@@ -14,6 +15,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <spring.cloud.version>Edgware.SR3</spring.cloud.version>
+        <fastjson.version>1.2.47</fastjson.version>
     </properties>
 
     <parent>
@@ -38,7 +40,28 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <configuration>
+                        <encoding>UTF-8</encoding>
+                        <overwrite>true</overwrite>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>
