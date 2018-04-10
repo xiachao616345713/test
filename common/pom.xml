@@ -9,7 +9,7 @@
   <packaging>jar</packaging>
 
   <name>common</name>
-  <description>test common for config</description>
+  <description>common component</description>
 
   <parent>
     <groupId>manager</groupId>
@@ -33,12 +33,12 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-autoconfigure</artifactId>
-      <scope>compile</scope>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-web</artifactId>
-      <scope>compile</scope>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 
@@ -51,6 +51,7 @@
         <executions>
           <execution>
             <goals>
+              <!--https://stackoverflow.com/questions/10567551/difference-between-maven-source-plugin-jar-and-jar-no-fork-goal-->
               <goal>jar-no-fork</goal>
             </goals>
           </execution>

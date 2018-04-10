@@ -1,3 +1,5 @@
+package com.manager.plugins;
+
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
@@ -15,7 +17,7 @@ import org.springframework.stereotype.Component;
  * @since 2018-04-10
  */
 @Component
-@ConditionalOnExpression("${common.fastjson.eanble} == true")
+@ConditionalOnExpression("${common.fastjson.enable} == true")
 public class FastJsonConvert {
 
     @Bean
