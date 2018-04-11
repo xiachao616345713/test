@@ -35,10 +35,10 @@ public class CodeGenerator {
     public static final String CONTROLLER_PACKAGE = BASE_PACKAGE + ".controller";//Controller所在包
     public static final String MAPPER_INTERFACE_REFERENCE = BASE_PACKAGE + ".mybatis.MyMapper";//Mapper插件基础接口的完全限定名
     //JDBC配置，请修改为你项目的实际配置
-    private static final String JDBC_URL = "jdbc:mysql://111/manager?characterEncoding=utf8&useSSL=true";
-    private static final String JDBC_USERNAME = "111";
-    private static final String JDBC_PASSWORD = "111";
-    private static final String JDBC_DIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
+    private static final String JDBC_URL = "jdbc:mysql://1.1.1.1/manager?characterEncoding=utf8&useSSL=true";
+    private static final String JDBC_USERNAME = "1";
+    private static final String JDBC_PASSWORD = "1";
+    private static final String JDBC_DIVER_CLASS_NAME = "com.mysql.cj.jdbc.Driver";
     private static final String PROJECT_PATH = System.getProperty("user.dir") + "/code-generator/src/test/java/file";//项目在硬盘上的基础路径
     private static final String TEMPLATE_FILE_PATH = PROJECT_PATH + "/src/test/resources/templates";//模板位置
     private static final String JAVA_PATH = "/src/main/java"; //java文件路径
