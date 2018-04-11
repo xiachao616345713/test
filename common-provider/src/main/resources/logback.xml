@@ -1,0 +1,17 @@
+<!-- Logback configuration. See http://logback.qos.ch/manual/index.html -->
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <!--https://logback.qos.ch/manual/jmxConfig.html-->
+    <jmxConfigurator />
+
+    <appender name="mybatisLog" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%clr(%date [%thread] %-5level %logger{25} - %msg%n){yellow}</Pattern>
+        </layout>
+    </appender>
+    <logger name="com.manager.common.mapper" level="DEBUG">
+        <appender-ref ref="mybatisLog" />
+    </logger>
+</configuration>
+

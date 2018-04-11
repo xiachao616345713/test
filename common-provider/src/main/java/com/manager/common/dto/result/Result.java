@@ -15,12 +15,12 @@ public final class Result<T> implements Serializable {
     public static final Result SUCCESS = Result.newResult(Code.SUCCESS);
 
     /**
-     * @see Code#code()
+     * @see Code#code
      */
     private Integer code;
 
     /**
-     * @see Code#msg()
+     * @see Code#msg
      */
     private String msg;
 

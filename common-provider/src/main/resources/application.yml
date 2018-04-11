@@ -3,6 +3,9 @@ server:
 spring:
   application:
     name: common-provider
+  output:
+      ansi:
+        enabled: ALWAYS
 eureka:
   instance:
       preferIpAddress: true
