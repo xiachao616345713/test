@@ -14,6 +14,7 @@
         <module>server</module>
         <module>mybatis</module>
         <module>code-generator</module>
+        <module>common-provider</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -57,6 +58,7 @@
             <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
+
     </dependencies>
 
     <build>

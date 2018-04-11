@@ -25,7 +25,7 @@ public class RegionService {
      * @param id primary key
      * @return region info
      */
-    public Region selectByPrimaryKey(int id) {
+    public Region selectRegionByid(int id) {
         return  regionMapper.selectByPrimaryKey(id);
     }
 

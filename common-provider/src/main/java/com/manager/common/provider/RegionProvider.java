@@ -23,7 +23,7 @@ public class RegionProvider {
 
     @GetMapping("/item")
     public Result selectRegion(@RequestParam int id) {
-        return Result.newSuccessResult(regionService.selectByPrimaryKey(id));
+        return Result.newSuccessResult(regionService.selectRegionByid(id));
     }
 
     @GetMapping("/itemList")

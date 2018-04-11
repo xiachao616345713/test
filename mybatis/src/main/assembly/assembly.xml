@@ -1,0 +1,26 @@
+<assembly>
+    <id>mybatis</id>
+
+    <formats>
+        <format>jar</format>
+    </formats>
+
+    <includeBaseDirectory>false</includeBaseDirectory>
+
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>/boot</outputDirectory>
+            <includes>
+                <include>${project.groupId}:mybatis</include>
+            </includes>
+        </dependencySet>
+        <dependencySet>
+            <outputDirectory>/libs</outputDirectory>
+            <includes>
+                <include>*:pagehelper-spring-boot-starter</include>
+                <include>*:mapper-spring-boot-starter</include>
+            </includes>
+        </dependencySet>
+    </dependencySets>
+
+</assembly>

@@ -22,6 +22,7 @@ common:
 mybatis:
   type-aliases-package: com.manager.common.model
   mapper-locations: classpath:mapper/*.xml
+
 mapper:
   mappers:
     - com.manager.mybatis.MyMapper
@@ -29,10 +30,6 @@ mapper:
   identity: MYSQL
 pagehelper:
   helperDialect: mysql
-  reasonable: true
+  reasonable: false
   supportMethodsArguments: true
   params: count=countSql
-
-
-
-
