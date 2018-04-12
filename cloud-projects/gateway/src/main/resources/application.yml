@@ -1,0 +1,55 @@
+server:
+  port: 8887
+
+eureka:
+  instance:
+      preferIpAddress: true
+      instanceId: ${spring.application.name}:${server.port}
+  client:
+    service-url:
+        defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: zuul-gateway
+zuul:
+  host:
+    max-per-route-connections: 20
+    max-total-connections: 200
+  routes:
+    # common-provider: /common/**
+    common-provider:
+      path: /common/**
+      serviceId: common-provider
+      stripPrefix: true
+  ignored-patterns:
+    - /dictionary/itemList
+
+#static list of servers specify multiple URLs with Ribbon
+#common-provider:
+#  ribbon:
+#    NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
+#    ListOfServers: http://example1.com,http://example2.com
+#    ConnectTimeout: 1000
+#    ReadTimeout: 3000
+#    MaxTotalHttpConnections: 500
+#    MaxConnectionsPerHost: 100
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+    common-provider:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+ribbon:
+  #The Hystrix timeout
+  #(ribbon.ConnectTimeout + ribbon.ReadTimeout) * (ribbon.MaxAutoRetries + 1) * (ribbon.MaxAutoRetriesNextServer + 1)
+  ConnectTimeout: 3000
+  ReadTimeout: 60000
+  MaxAutoRetries: 1
+  MaxAutoRetriesNextServer: 1
