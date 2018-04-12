@@ -8,8 +8,8 @@
     <artifactId>manager-parent</artifactId>
     <version>1.0.0</version>
     <modules>
-        <module>config</module>
-        <module>server</module>
+        <module>cloud-projects/config-server</module>
+        <module>cloud-projects/eureka-server</module>
         <module>common/mybatis</module>
         <module>common/code-generator</module>
         <module>common/component</module>

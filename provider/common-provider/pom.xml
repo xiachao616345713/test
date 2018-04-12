@@ -49,7 +49,7 @@
         </dependency>
         <dependency>
             <groupId>manager</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>component</artifactId>
             <version>1.0.0</version>
         </dependency>
 
