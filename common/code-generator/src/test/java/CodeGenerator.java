@@ -27,13 +27,13 @@ import java.util.Map;
  * 代码生成器，根据数据表名称生成对应的Model、Mapper、Service、Controller简化开发。
  */
 public class CodeGenerator {
-    public static final String BASE_PACKAGE = "com.manager";//项目基础包名称，根据自己公司的项目修改
-    public static final String MODEL_PACKAGE = BASE_PACKAGE + ".model";//Model所在包
-    public static final String MAPPER_PACKAGE = BASE_PACKAGE + ".mapper";//Mapper所在包
-    public static final String SERVICE_PACKAGE = BASE_PACKAGE + ".service";//Service所在包
-    public static final String SERVICE_IMPL_PACKAGE = SERVICE_PACKAGE + ".impl";//ServiceImpl所在包
-    public static final String CONTROLLER_PACKAGE = BASE_PACKAGE + ".controller";//Controller所在包
-    public static final String MAPPER_INTERFACE_REFERENCE = BASE_PACKAGE + ".mybatis.MyMapper";//Mapper插件基础接口的完全限定名
+    private static final String BASE_PACKAGE = "com.manager";//项目基础包名称，根据自己公司的项目修改
+    private static final String MODEL_PACKAGE = BASE_PACKAGE + ".model";//Model所在包
+    private static final String MAPPER_PACKAGE = BASE_PACKAGE + ".mapper";//Mapper所在包
+    private static final String SERVICE_PACKAGE = BASE_PACKAGE + ".service";//Service所在包
+    private static final String SERVICE_IMPL_PACKAGE = SERVICE_PACKAGE + ".impl";//ServiceImpl所在包
+    private static final String CONTROLLER_PACKAGE = BASE_PACKAGE + ".controller";//Controller所在包
+    private static final String MAPPER_INTERFACE_REFERENCE = BASE_PACKAGE + ".mybatis.MyMapper";//Mapper插件基础接口的完全限定名
     //JDBC配置，请修改为你项目的实际配置
     private static final String JDBC_URL = "jdbc:mysql://1.1.1.1/manager?characterEncoding=utf8&useSSL=true";
     private static final String JDBC_USERNAME = "1";
@@ -50,7 +50,7 @@ public class CodeGenerator {
     private static final String DATE = new SimpleDateFormat("yyyy/MM/dd").format(new Date());//@date
 
     public static void main (String[] args) {
-        genCode("region");
+        genCode("dictionary");
     }
 
     public static void genCode (String... tableNames) {
@@ -62,7 +62,7 @@ public class CodeGenerator {
         }
     }
 
-    public static void genModelAndMapper (String tableName) {
+    private static void genModelAndMapper (String tableName) {
         Context context = new Context(ModelType.FLAT);
         context.setId("Potato");
         context.setTargetRuntime("MyBatis3Simple");
@@ -128,7 +128,7 @@ public class CodeGenerator {
         System.out.println(modelName + "Mapper.xml 生成成功");
     }
 
-    public static void genService (String tableName) {
+    private static void genService (String tableName) {
         try {
             freemarker.template.Configuration cfg = getConfiguration();
 
@@ -160,7 +160,7 @@ public class CodeGenerator {
         }
     }
 
-    public static void genController (String tableName) {
+    private static void genController (String tableName) {
         try {
             freemarker.template.Configuration cfg = getConfiguration();
 
