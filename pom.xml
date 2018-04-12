@@ -14,7 +14,7 @@
         <module>common/code-generator</module>
         <module>common/component</module>
         <module>provider/common-provider</module>
-        <module>provider/client</module>
+        <module>provider/test-config-client</module>
     </modules>
     <packaging>pom</packaging>
 
