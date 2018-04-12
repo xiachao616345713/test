@@ -52,7 +52,15 @@
             <artifactId>component</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>manager</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0.0</version>
+        </dependency>
 
     </dependencies>
 
+    <build>
+        <finalName>common-provider</finalName>
+    </build>
 </project>
