@@ -21,10 +21,10 @@ zuul:
       path: /common/**
       serviceId: common-provider
       stripPrefix: true
-  ignored-patterns:
-    - /dictionary/itemList
+  #ignored-patterns:
 
-#static list of servers specify multiple URLs with Ribbon
+# static list of servers specify multiple URLs with Ribbon
+# Use Ribbon Without Eureka
 #common-provider:
 #  ribbon:
 #    NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
@@ -40,16 +40,22 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 60000
+            timeoutInMilliseconds: 240000
     common-provider:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 60000
+            timeoutInMilliseconds: 244444
 ribbon:
   #The Hystrix timeout
   #(ribbon.ConnectTimeout + ribbon.ReadTimeout) * (ribbon.MaxAutoRetries + 1) * (ribbon.MaxAutoRetriesNextServer + 1)
-  ConnectTimeout: 3000
-  ReadTimeout: 60000
+  ConnectTimeout: 30000
+  ReadTimeout: 30000
   MaxAutoRetries: 1
   MaxAutoRetriesNextServer: 1
+
+filter:
+  validate:
+    ignorePaths:
+      - /common/dictionary/item
+      - /common/dictionary/itemList

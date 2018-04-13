@@ -1,5 +1,6 @@
 package com.manager.fallback;
 
+import com.manager.common.dto.result.Result;
 import com.netflix.hystrix.exception.HystrixTimeoutException;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -12,7 +13,7 @@ import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.stereotype.Component;
 
 /**
- * default fallback
+ * hystrix default fallback
  *
  * @author chao
  * @since 2018-04-12
@@ -45,13 +46,13 @@ public class DefaultFallbackProvider implements FallbackProvider {
             @Override
             public HttpHeaders getHeaders() {
                 HttpHeaders headers = new HttpHeaders();
-                headers.setContentType(MediaType.APPLICATION_JSON);
+                headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
                 return headers;
             }
 
             @Override
             public InputStream getBody() throws IOException {
-                return new ByteArrayInputStream("fallback".getBytes());
+                return new ByteArrayInputStream(Result.FAIL.toString().getBytes());
             }
 
             @Override
