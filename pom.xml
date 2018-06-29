@@ -15,6 +15,7 @@
         <module>common/component</module>
         <module>provider/common-provider</module>
         <module>provider/test-config-client</module>
+        <module>common/rec</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -28,6 +29,7 @@
         <fastjson.version>1.2.47</fastjson.version>
         <mysql-connector-java.version>6.0.6</mysql-connector-java.version>
         <lombok.version>1.16.20</lombok.version>
+        <docker.image.prefix>manager</docker.image.prefix>
     </properties>
 
     <parent>
@@ -80,7 +82,74 @@
                         <target>1.8</target>
                     </configuration>
                 </plugin>
+
+                <!-- Docker maven plugin -->
+                <plugin>
+                    <groupId>com.spotify</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>1.1.1</version>
+                    <configuration>
+                        <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+                        <dockerDirectory>src/main/docker</dockerDirectory>
+                        <resources>
+                            <resource>
+                                <targetPath>/</targetPath>
+                                <directory>${project.build.directory}</directory>
+                                <include>${project.build.finalName}*.tar.gz</include>
+                            </resource>
+                        </resources>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>unpack</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>unpack</goal>
+                            </goals>
+                            <configuration>
+                                <artifactItems>
+                                    <artifactItem>
+                                        <groupId>manager</groupId>
+                                        <artifactId>rec</artifactId>
+                                        <version>1.0.0</version>
+                                        <outputDirectory>${project.build.directory}/bin</outputDirectory>
+                                        <includes>*</includes>
+                                    </artifactItem>
+                                </artifactItems>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <configuration>
+                        <descriptor>src/main/assembly/assembly.xml</descriptor>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>make-assembly</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>single</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
             </plugins>
         </pluginManagement>
+
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+                <targetPath>${project.build.directory}/conf</targetPath>
+                <includes>
+                    <include>*</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
 </project>

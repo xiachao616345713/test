@@ -5,7 +5,6 @@
 
     <artifactId>eureka-server</artifactId>
     <version>1.0.0</version>
-    <packaging>jar</packaging>
 
     <name>eureka-server</name>
     <description>eureka-server</description>
@@ -35,6 +34,28 @@
         </dependency>
 
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+            </plugin>
+
+            <!--<plugin>-->
+                <!--<groupId>org.springframework.boot</groupId>-->
+                <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
+            <!--</plugin>-->
+
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+
+    </build>
 
 
 </project>
