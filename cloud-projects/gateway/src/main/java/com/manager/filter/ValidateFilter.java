@@ -76,7 +76,7 @@ public class ValidateFilter extends ZuulFilter {
         /*
          * validate signature
          */
-        Map<String,Object> map = null;
+        Map<String, Object> map = null;
         if (HttpMethod.POST.toString().equals(request.getMethod())) {
             if (request.getParameterMap() != null && request.getParameterMap().size() > 0) {
                 map = new HashMap<>(request.getParameterMap());
@@ -85,7 +85,7 @@ public class ValidateFilter extends ZuulFilter {
             try {
                 InputStream in = request.getInputStream();
                 if (in != null) {
-                    JSONObject jsonObject = JSONObject.parseObject(StreamUtils.copyToString(in,Charset.forName("UTF-8")));
+                    JSONObject jsonObject = JSONObject.parseObject(StreamUtils.copyToString(in, Charset.forName("UTF-8")));
                     if (!jsonObject.isEmpty()) {
                         if (map != null) {
                             map.putAll(jsonObject.getInnerMap());
@@ -104,11 +104,10 @@ public class ValidateFilter extends ZuulFilter {
         }
         String contentType = request.getContentType();
         // request parameter
-        Map<String,String[]> parameterMap = request.getParameterMap();
+        Map<String, String[]> parameterMap = request.getParameterMap();
         if (parameterMap != null) {
             map = new HashMap<>(parameterMap);
         }
-
 
         return null;
     }

@@ -6,16 +6,19 @@ import org.springframework.cloud.netflix.zuul.filters.ProxyRequestHelper;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 
 /**
- * sample filter
- * pre filter -> route filter -> post filter
+ * <p>sample filter</p>
+ * <p>pre filter -> route filter -> post filter</p>
  *
- * Pre filters set up data in the RequestContext for use in filters downstream.
- * The main use case is to set information required for route filters
+ * <p>Pre filters set up data in the RequestContext for use in filters downstream.</p>
+ * <p>The main use case is to set information required for route filters</p>
  *
- * Route filters run after pre filters and make requests to other services.
- * Much of the work here is to translate request and response data to and from the model required by the client
+ * <p>Route filters run after pre filters and make requests to other services.</p>
+ * <p>Much of the work here is to translate request and response data to and from the model required by the client</p>
  *
- * Post filters typically manipulate the response
+ * <p>Post filters typically manipulate the response</p>
+ *
+ * <p>@see http://cloud.spring.io/spring-cloud-static/Edgware.SR4/single/spring-cloud.html#_custom_zuul_filter_examples</p>
+ *
  * @author chao
  * @since 2018-04-13
  */

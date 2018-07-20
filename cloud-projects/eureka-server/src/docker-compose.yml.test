@@ -1,0 +1,6 @@
+version: '1'
+services:
+  container_name: test-eureka-serverxxx
+  build: .
+  ports:
+    - 8762:8761

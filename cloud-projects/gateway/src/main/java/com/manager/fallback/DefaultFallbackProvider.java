@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * hystrix default fallback
+ * <p>@see http://cloud.spring.io/spring-cloud-static/Edgware.SR4/single/spring-cloud.html#hystrix-fallbacks-for-routes</p>
  *
  * @author chao
  * @since 2018-04-12
@@ -28,11 +29,13 @@ public class DefaultFallbackProvider implements FallbackProvider {
 
     @Override
     public ClientHttpResponse fallbackResponse() {
+        System.out.println("execute DefaultFallbackProvider");
         return response(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @Override
     public ClientHttpResponse fallbackResponse(Throwable cause) {
+        System.out.println("execute DefaultFallbackProvider cause");
         if (cause instanceof HystrixTimeoutException) {
             return response(HttpStatus.GATEWAY_TIMEOUT);
         } else {

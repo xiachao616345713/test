@@ -49,6 +49,7 @@ hystrix:
 ribbon:
   #The Hystrix timeout
   #(ribbon.ConnectTimeout + ribbon.ReadTimeout) * (ribbon.MaxAutoRetries + 1) * (ribbon.MaxAutoRetriesNextServer + 1)
+  # @see http://cloud.spring.io/spring-cloud-static/Edgware.SR4/single/spring-cloud.html#_service_discovery_configuration
   ConnectTimeout: 30000
   ReadTimeout: 30000
   MaxAutoRetries: 1
@@ -58,4 +59,4 @@ filter:
   validate:
     ignorePaths:
       - /common/dictionary/item
-      - /common/dictionary/itemList
+      - /common/dictionary/itemlist
