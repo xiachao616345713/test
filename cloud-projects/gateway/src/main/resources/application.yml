@@ -21,6 +21,10 @@ zuul:
       path: /common/**
       serviceId: common-provider
       stripPrefix: true
+    health-indicator:
+      path: /healthindicator/**
+      serviceId: health-indicator
+      stripPrefix: true
   #ignored-patterns:
 
 # static list of servers specify multiple URLs with Ribbon

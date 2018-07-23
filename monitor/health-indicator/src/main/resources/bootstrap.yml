@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    config:
+      discovery:
+        serviceId: config-server
+        enabled: true
+      # get config server properties file
+      # file name ${application.name}-{profile} (config-server-test)
+      name: config-server
+      label: master
+      profile: test
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
