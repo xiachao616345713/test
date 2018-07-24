@@ -1,11 +1,10 @@
 package com.manager.fallback;
 
 import com.manager.common.dto.result.Result;
-import com.netflix.hystrix.exception.HystrixTimeoutException;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import org.springframework.cloud.netflix.zuul.filters.route.FallbackProvider;
+import org.springframework.cloud.netflix.zuul.filters.route.ZuulFallbackProvider;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,13 +13,13 @@ import org.springframework.stereotype.Component;
 
 /**
  * hystrix default fallback
- * <p>@see http://cloud.spring.io/spring-cloud-static/Edgware.SR4/single/spring-cloud.html#hystrix-fallbacks-for-routes</p>
+ * <p>@see http://cloud.spring.io/spring-cloud-static/Dalston.SR5/single/spring-cloud.html#hystrix-fallbacks-for-routes</p>
  *
  * @author chao
  * @since 2018-04-12
  */
 @Component
-public class DefaultFallbackProvider implements FallbackProvider {
+public class DefaultFallbackProvider implements ZuulFallbackProvider {
 
     @Override
     public String getRoute() {
@@ -31,16 +30,6 @@ public class DefaultFallbackProvider implements FallbackProvider {
     public ClientHttpResponse fallbackResponse() {
         System.out.println("execute DefaultFallbackProvider");
         return response(HttpStatus.INTERNAL_SERVER_ERROR);
-    }
-
-    @Override
-    public ClientHttpResponse fallbackResponse(Throwable cause) {
-        System.out.println("execute DefaultFallbackProvider cause");
-        if (cause instanceof HystrixTimeoutException) {
-            return response(HttpStatus.GATEWAY_TIMEOUT);
-        } else {
-            return fallbackResponse();
-        }
     }
 
     private ClientHttpResponse response(final HttpStatus status) {

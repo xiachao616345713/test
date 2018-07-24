@@ -1,0 +1,15 @@
+server:
+  port: 8765
+spring:
+  application:
+    name: turbine
+  output:
+      ansi:
+        enabled: ALWAYS
+turbine:
+  # 表示同一主机上的服务通过host和port的组合来进行区分，默认情况下是使用host来区分，这样会使本地调试有问题
+  combine-host-port: true
+  # 指定了要监控的应用名字
+  app-config: common-provider
+  # cluster name
+  cluster-name-expression: "'default'"

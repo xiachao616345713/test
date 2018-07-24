@@ -1,5 +1,5 @@
 server:
-  port: 8888
+  port: 8762
 
 spring:
   # spring.profiles.active = native will use cloud.config.server.native
