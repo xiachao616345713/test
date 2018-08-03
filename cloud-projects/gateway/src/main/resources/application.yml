@@ -25,6 +25,10 @@ zuul:
       path: /healthindicator/**
       serviceId: health-indicator
       stripPrefix: true
+    test-feign-client:
+      path: /feigntest/**
+      serviceId: test-feign-client
+      stripPrefix: true
   #ignored-patterns:
 
 # static list of servers specify multiple URLs with Ribbon

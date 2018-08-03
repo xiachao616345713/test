@@ -9,7 +9,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 
 @EnableCircuitBreaker
 @EnableEurekaClient
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.manager.common","com.manager.plugins"})
 @MapperScan(basePackages={"com.manager.common.mapper"})
 public class CommonProviderApplication {
 

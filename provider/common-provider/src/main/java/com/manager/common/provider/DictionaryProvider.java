@@ -25,12 +25,14 @@ public class DictionaryProvider {
     @HystrixCommand
     @GetMapping("/item")
     public Result selectDictionary(@RequestParam int id) {
+        System.out.println("=========common==========");
         return Result.newSuccessResult(dictionaryService.selectDictionaryById(id));
     }
 
     @HystrixCommand
     @GetMapping("/itemList")
     public Result selectDictionaryList(@RequestParam int pageNum, @RequestParam int pageSize) {
+        System.out.println("=========common==========");
         return Result.newSuccessResult(dictionaryService.selectDictionaryList(pageNum, pageSize));
     }
 }

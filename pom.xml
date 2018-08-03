@@ -17,6 +17,7 @@
         <module>provider/test-config-client</module>
         <module>common/rec</module>
         <module>monitor/health-indicator</module>
+        <module>client/common-client</module>
     </modules>
     <packaging>pom</packaging>
 
