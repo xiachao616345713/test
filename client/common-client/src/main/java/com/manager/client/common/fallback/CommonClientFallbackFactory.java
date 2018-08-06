@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * @author chao
  * @since 2018-08-01
  */
-//@Component
+@Component
 public class CommonClientFallbackFactory implements FallbackFactory<CommonClient> {
 
     @Override

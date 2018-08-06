@@ -1,5 +1,6 @@
 package com.manager.client.common;
 
+import com.manager.client.common.fallback.CommonClientFallbackFactory;
 import com.manager.common.dto.result.Result;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author chao
  * @since 2018-07-25
  */
-@FeignClient(value = "common-provider")
+@FeignClient(value = "common-provider", fallbackFactory = CommonClientFallbackFactory.class)
 @RequestMapping("/dictionary")
 public interface CommonClient {
 
