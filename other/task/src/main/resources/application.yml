@@ -1,0 +1,15 @@
+server:
+  port: 8900
+spring:
+  application:
+    name: task
+  output:
+      ansi:
+        enabled: ALWAYS
+#eureka:
+#  instance:
+#      preferIpAddress: true
+#      instanceId: ${spring.application.name}:${server.port}
+#  client:
+#    service-url:
+#        defaultZone: http://localhost:8761/eureka/

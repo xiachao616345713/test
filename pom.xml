@@ -18,6 +18,7 @@
         <module>common/rec</module>
         <module>monitor/health-indicator</module>
         <module>client/common-client</module>
+        <module>other/task</module>
     </modules>
     <packaging>pom</packaging>
 
