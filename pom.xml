@@ -17,6 +17,8 @@
         <module>provider/test-config-client</module>
         <module>common/rec</module>
         <module>monitor/health-indicator</module>
+        <module>monitor/hystrix-dashboard</module>
+        <module>monitor/turbine</module>
         <module>client/common-client</module>
         <module>other/task</module>
     </modules>

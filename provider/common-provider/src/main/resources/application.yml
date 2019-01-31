@@ -6,6 +6,9 @@ spring:
   output:
       ansi:
         enabled: ALWAYS
+  boot:
+    admin:
+      url: http://localhost:8766
 eureka:
   instance:
       preferIpAddress: true
@@ -33,3 +36,7 @@ pagehelper:
   reasonable: false
   supportMethodsArguments: true
   params: count=countSql
+
+management:
+  security:
+    enabled: false
